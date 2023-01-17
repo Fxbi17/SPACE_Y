@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_14_155002) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_17_184841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_155002) do
 
   create_table "spaceships", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "image"
     t.integer "price"
     t.bigint "user_id", null: false
