@@ -1,12 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_spaceship, only: [:new, :create]
 
-  def show
-    @booking = Booking.where(user: current_user)
-  end
 
   def new
-    @booking = Booking.find(params[:booking_id])
     @booking = Booking.new
   end
 
@@ -15,14 +11,10 @@ class BookingsController < ApplicationController
     @booking.spaceship = @spaceship
     @booking.user = current_user
     if @booking.save!
-      redirect_to root_path
+      redirect_to my_bookings_path
     else
     render :new
     end
-  end
-
-  def index
-    @bookings = Booking.all
   end
 
   private
