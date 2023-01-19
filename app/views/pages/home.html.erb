@@ -1,9 +1,9 @@
 <h1>Space Y</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<p>Space Y is a space travel market that offers spaceships for rent.</p>
 
 <h2>Our Spaceships for rent</h2>
 <% @spaceships.each do |spaceship| %>
-    <h3><%= spaceship.name %></h3>
-    <p><%= spaceship.description %></p>
-    <p><%= spaceship.price %></p>
+    <p><%= spaceship.image %></p>
+    <h3><%= link_to spaceship.name, spaceship_path(spaceship) %></h3>
   <% end %>
+
