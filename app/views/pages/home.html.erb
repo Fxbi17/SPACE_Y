@@ -1,2 +1,9 @@
 <h1>Space Y</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<h2>Our Spaceships for rent</h2>
+<% @spaceships.each do |spaceship| %>
+    <h3><%= spaceship.name %></h3>
+    <p><%= spaceship.description %></p>
+    <p><%= spaceship.price %></p>
+  <% end %>

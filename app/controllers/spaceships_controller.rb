@@ -16,7 +16,7 @@ class SpaceshipsController < ApplicationController
     end
   end
 
-private
+  private
 
   def set_spaceship
     @spaceship = Spaceship.find(params[:spaceship_id])
