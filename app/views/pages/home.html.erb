@@ -2,8 +2,7 @@
 <p>Space Y is a space travel market that offers spaceships for rent.</p>
 
 <h2>Our Spaceships for rent</h2>
-<% @spaceships.each do |spaceship| %>
+  <% @spaceships.each do |spaceship| %>
     <p><%= spaceship.image %></p>
     <h3><%= link_to spaceship.name, spaceship_path(spaceship) %></h3>
   <% end %>
-
