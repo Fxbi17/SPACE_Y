@@ -1,0 +1,8 @@
+<div class="container">
+    <%= simple_form_for [@spaceship, @booking] do |f| %>
+    <%= f.input :startbook_time, as: :string, input_html: { data: { controller: 'spaceship' } } %>
+    <%= f.input :endbook_time, as: :string, input_html: { data: { controller: 'spaceship' } } %>
+    <%= f.input :picture, as: :file %>
+    <%= f.button :submit %>
+    <% end %>
+</div>

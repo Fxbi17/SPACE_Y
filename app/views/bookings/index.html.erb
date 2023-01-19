@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <% number = 0 %>
+    <% @bookings.each do |booking| %>
+      <p>Votre booking numéro : <%= number += 1 %></p>
+      <%= booking.startbook_time %>
+      <%= booking.endbook_time %><br><br>
+      <a href="bookings/<%= booking.id%>"> Voir le booking</a>
+        <% if booking.picture.attached? %>
+          <%= cl_image_tag booking.picture.key, height: 200, width: 200, crop: :fill %>
+        <% end %>
+    <% end %>
+</div>
