@@ -1,28 +1,17 @@
 class SpaceshipsController < ApplicationController
-  before_action :set_spaceship, only: [:new, :create]
+  before_action :set_spaceship, only: [:show]
 
-  def new
-    @spaceship = Spaceship.new
-  end
-
-  def create
-    @spaceship = Spaceship.new(params_spaceship)
-    @sapceship.booking = @booking
-    @spaceship.user = current_user
-    if @spaceship.save!
-      redirect_to root_path
-    else
-      render :new
-    end
+  def show
+    set_spaceship
   end
 
   private
 
   def set_spaceship
-    @spaceship = Spaceship.find(params[:spaceship_id])
+    @spaceship = Spaceship.find(params[:id])
   end
 
-  def params_spaceship
+  def spaceship_params
     params.require(:spaceship).permit(:name, :description, :price)
   end
 end
