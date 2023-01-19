@@ -1,8 +1,13 @@
 <h1><%= @spaceship.name %></h1>
 
-<%= @spaceship.image %>
-<%= @spaceship.description %>
-<%= @spaceship.price %>
+<%= @spaceship.image %><br>
+<%= @spaceship.description %><br><br>
+<%= @spaceship.price %>$<br>
+<%# <%= f.input :picture, as: :file %> 
 
-<%= link_to "Back", spaceships_path %>
+<br><br>
 
+<%# liens vers booking %>
+<%= link_to "votre booking", new_spaceship_booking_path(@spaceship) %>
+<br><br>
+<%= link_to "Back-Home", root_path %>

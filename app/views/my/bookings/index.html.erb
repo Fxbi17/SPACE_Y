@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <% @bookings.each do |booking| %>
+      <p>Votre numéro booking  : #<%= booking.id %></p>
+      <%= booking.startbook_time %>
+      <%= booking.endbook_time %><br><br>
+      <%= link_to "#{booking.spaceship.name}", my_bookings_path(booking) %>
+    <% end %>
+
+    <br><br>
+<%= link_to "Back-Home", root_path %>
+</div>
