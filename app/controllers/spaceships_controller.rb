@@ -1,10 +1,6 @@
 class SpaceshipsController < ApplicationController
   before_action :set_spaceship, only: [:new, :create]
 
-  def index
-    @spaceships = Spaceship.all
-  end
-
   def new
     @spaceship = Spaceship.new
   end

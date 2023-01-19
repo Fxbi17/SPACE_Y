@@ -3,7 +3,7 @@
 
 <h2>Our Spaceships for rent</h2>
 <% @spaceships.each do |spaceship| %>
-    <h3><%= @spaceship.name %></h3>
-    <p><%=@spaceship.description %></p>
-    <p><%=@spaceship.price %></p>
+    <h3><%= spaceship.name %></h3>
+    <p><%= spaceship.description %></p>
+    <p><%= spaceship.price %></p>
   <% end %>
