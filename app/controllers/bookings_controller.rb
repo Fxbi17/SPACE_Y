@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_spaceship, only: [:new, :create]
 
-
   def new
     @booking = Booking.new
   end
@@ -13,7 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save!
       redirect_to my_bookings_path
     else
-    render :new
+      render :new
     end
   end
 

@@ -1,9 +1,13 @@
 <h1>Space Y</h1>
 <p>Space Y is a space travel market that offers spaceships for rent.</p>
 
-<h2>Our Spaceships for rent</h2>
+<h3>Our Spaceships for rent</h3>
 <% @spaceships.each do |spaceship| %>
-    <p><%= spaceship.image %></p>
-    <h3><%= link_to spaceship.name, spaceship_path(spaceship) %></h3>
-  <% end %>
-
+  <p><%= spaceship.image %></p>
+  <h4><%= link_to spaceship.name, spaceship_path(spaceship) %></h4>
+  <%# Verifier si image du spaceship est présente et l'afficher, sinon rien %>
+  <%# Method .attached? not working need, to check  %>
+    <%# <% if spaceship.image.attached? %>
+      <%# <%= cl_image_tag spaceship.image.key, height: 200, width: 200, crop: :fill %>
+    <%# <% end %>
+<% end %>
