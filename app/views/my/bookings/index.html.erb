@@ -1,9 +1,19 @@
-<div class="container mt-5">
-<h2>My Bookings</h2><br><br>
-    <% @bookings.each do |booking| %>
-      <h5>Booking N° : #<%= booking.id %></h5>
-      <%= link_to "#{booking.spaceship.name}", my_booking_path(booking) %><br>
-      <%= booking.startbook_time %><br>
-      <%= booking.endbook_time %><br><br><br>
-    <% end %>
+<h1>My Bookings</h1>
+<p><%= link_to "Back to home", root_path %></p>
+<div class="row">
+  <% @bookings.each do |booking| %>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p>Booking n° <strong><%= booking.id %></strong><br>
+              <%= link_to "#{booking.spaceship.name}", my_booking_path(booking) %>
+            </p>
+            <p>Start <strong><%= booking.startbook_time %></strong></p>
+            <p>End <strong><%= booking.endbook_time %></strong></p>
+            <p>Price <strong><%= booking.spaceship.price %> £</strong></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
