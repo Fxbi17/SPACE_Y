@@ -1,13 +1,19 @@
+<h4>Spaceship Name</h4>
 <h1><%= @spaceship.name %></h1>
-
-<%= @spaceship.image %><br>
-<%= @spaceship.description %><br><br>
-<%= @spaceship.price %>$<br>
-<%# <%= f.input :picture, as: :file %> 
-
+<%# Ajout de balise <p> pour mise en page %>
+<p><%= @spaceship.image %></p><br>
+<h4>Description du vaisseau</h4>
+<p><%= @spaceship.description %></p><br><br>
+<h4>Price</h4>
+<%# A choisir %>
+<p><%= @spaceship.price %>$</p><br>
+<p><span style="background-color: red; border-radius: 4px; padding: 3px;"><%= @spaceship.price %></span>€</p>
+<%# NE MARCHE PAS %>
+<%# TEST Lien pour upload une photo TEST %>
+<%# <%= f.input :image, as: :file %>
+<%# <img src="https://res.cloudinary.com/demo/image/upload/sample"> %>
+<%# <img src="img_vaisseau.jpg" alt="Spaceship" width="500" height="600"> %>
 <br><br>
 
 <%# liens vers booking %>
-<%= link_to "votre booking", new_spaceship_booking_path(@spaceship) %>
-<br><br>
-<%= link_to "Back-Home", root_path %>
+<%= link_to "Booking Now", new_spaceship_booking_path(@spaceship)  %>

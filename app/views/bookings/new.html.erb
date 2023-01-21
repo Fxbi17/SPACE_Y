@@ -1,9 +1,8 @@
 <div class="container">
+  <h3>Date de Booking </h3><br>
     <%= simple_form_for [@spaceship, @booking] do |f| %>
     <%= f.input :startbook_time, as: :date, html5: true  %>
-    <%= f.input :endbook_time, as: :date, html5: true  %>
+    <%= f.input :endbook_time, as: :date, html5: true  %><br>
     <%= f.button :submit %>
     <% end %>
-    <br><br>
-<%= link_to "Back-Home", root_path %>
 </div>

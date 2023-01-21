@@ -12,6 +12,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def spaceship_params
-    params.require(:spaceship).permit(:name, :description, :price)
+    # j'ai ajouter 'image' au params. Ne pas oublier de l'enlever si inutile
+    params.require(:spaceship).permit(:name, :description, :price, :image)
   end
 end
