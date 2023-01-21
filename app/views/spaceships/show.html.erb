@@ -4,6 +4,8 @@
 <p><%= @spaceship.image %></p><br>
 <h4>Description du vaisseau</h4>
 <p><%= @spaceship.description %></p><br><br>
+<h4>Address</h4>
+<p><%= @spaceship.address %></p><br><br>
 <h4>Price</h4>
 <%# A choisir %>
 <p><%= @spaceship.price %>$</p><br>
@@ -17,3 +19,9 @@
 
 <%# liens vers booking %>
 <%= link_to "Booking Now", new_spaceship_booking_path(@spaceship)  %>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+</div>
