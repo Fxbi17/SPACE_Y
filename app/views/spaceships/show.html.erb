@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-6">
-    <h1 class="card-title"><%= @spaceship.name %></h1>
     <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
+    <h1 class="card-title"><%= @spaceship.name %></h1>
     <p class="card-text"><%= @spaceship.description %></p>
     <a href="<%= new_spaceship_booking_path(@spaceship) %>" class="btn btn-dark">Book now !</a>
-    <p><%= link_to "Back", root_path %></p>
+
   </div>
   <div class="col-6">
-    <%# map %>
+    <img src="https://wallpapershome.com/images/pages/pic_v/17861.jpg" alt="...">
   </div>
 </div>
 
