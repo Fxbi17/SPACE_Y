@@ -3,7 +3,16 @@ class SpaceshipsController < ApplicationController
 
   def show
     set_spaceship
+    @markers = [
+      {
+        lat: @spaceship.latitude,
+        lng: @spaceship.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {spaceship: @spaceship}),
+        marker_html: render_to_string(partial: "marker", locals: {spaceship: @spaceship})
+      }
+    ]
   end
+  
 
   private
 
@@ -13,6 +22,6 @@ class SpaceshipsController < ApplicationController
 
   def spaceship_params
     # j'ai ajouter 'image' au params. Ne pas oublier de l'enlever si inutile
-    params.require(:spaceship).permit(:name, :description, :price, :image)
+    params.require(:spaceship).permit(:name, :description, :price, :image, :address)
   end
 end

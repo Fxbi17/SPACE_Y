@@ -1,9 +1,10 @@
-<%# cgange color background nav-bar (navbar-light)(navbar-dark bg-dark) %>
+<%# change color background nav-bar (navbar-light)(navbar-dark bg-dark) %>
 <div class="navbar navbar-expand-sm  navbar-dark bg-dark navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%#  need to change logo_image du wagon.!! %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMC1Q-MGFhORHnvohCOZ-rWDiFnsd4C4f2tw&usqp=CAU" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +16,7 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
           <%# need to change user_image et peut-être rajouter le nom de l'utilisateur!!! %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0H1aFYOXBXb_UY2OcYYJb0ifm2zq1Yw6uJA&usqp=CAU", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <%# J'ai utilisé le dropdown-menu pour le parcours user-friendly %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Bookings", my_bookings_path, class: "dropdown-item" %>

@@ -1,9 +1,8 @@
 <div class="container">
-  <%# Ajout du titre %>
   <h3>Mes Dates de Booking</h3><br>
-    Date de début du booking : <%= @booking.startbook_time %><br><br>
-    Date de fin du booking : <%= @booking.endbook_time %><br>
-<br><br>
-<%# Ajout du lien de redirection malgré lien déjà existant dans dropdown-menu %>
-<%= link_to "All my Bookings", my_bookings_path %>
+  Date de début du booking : <%= @booking.startbook_time %><br><br>
+  Date de fin du booking : <%= @booking.endbook_time %><br>
+  <br><br>
+  <%# lien de redirection  %>
+  <%= link_to "All my Bookings", my_bookings_path %>
 </div>
