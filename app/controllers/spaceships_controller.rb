@@ -1,13 +1,9 @@
 class SpaceshipsController < ApplicationController
-  before_action :set_spaceship, only: [:show, :index]
+  before_action :set_spaceship, only: [:show]
 
   def show
     set_spaceship
-  end
-
-  def index
     @spaceships = Spaceship.all
-
     @markers = @spaceships.geocoded.map do |spaceship|
       {
         lat: spaceship.latitude,
