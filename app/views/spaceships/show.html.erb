@@ -1,15 +1,20 @@
 <h4>Spaceship Name</h4>
 <h1><%= @spaceship.name %></h1>
+
 <%# Ajout de balise <p> pour mise en page %>
 <p><%= @spaceship.image %></p><br>
+
 <h4>Description du vaisseau</h4>
 <p><%= @spaceship.description %></p><br><br>
+
 <h4>Address</h4>
 <p><%= @spaceship.address %></p><br><br>
+
 <h4>Price</h4>
 <%# A choisir %>
 <p><%= @spaceship.price %>$</p><br>
 <p><span style="background-color: red; border-radius: 4px; padding: 3px;"><%= @spaceship.price %></span>€</p>
+
 <%# NE MARCHE PAS %>
 <%# TEST Lien pour upload une photo TEST %>
 <%# <%= f.input :image, as: :file %>
@@ -20,6 +25,7 @@
 <%# liens vers booking %>
 <%= link_to "Booking Now", new_spaceship_booking_path(@spaceship)  %>
 
+<%# Mapbox %>
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"

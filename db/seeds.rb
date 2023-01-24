@@ -18,28 +18,31 @@ user3 = User.create!(email: "test2@test.com", password: "987654", username: "Dar
 
 users = [user1, user2, user3]
 
-10.times do
-  spaceship = Spaceship.new(
-    name: Faker::Movies::StarWars.vehicle,
-    description: "#{Faker::Movies::StarWars.quote}",
-    price: rand(1_000_000..1_000_000_000),
-  )
-  spaceship.user = users.sample
-  spaceship.save!
-end
+# 10.times do
+#   spaceship = Spaceship.new(
+#     name: Faker::Movies::StarWars.vehicle,
+#     description: "#{Faker::Movies::StarWars.quote}",
+#     price: rand(1_000_000..1_000_000_000),
+#   )
+#   spaceship.user = users.sample
+#   spaceship.save!
+# end
 
-# spaceship = Spaceship.new(
-#   name: "X-wing",
-#   description: "Since the starship battles in A New Hope were modeled after real-world dogfights, X-wings fit the role
-#   of the quick, darting fighter planes that fought in them. Their maneuverability and the split wings that match the X
-#   in their name make them one of the coolest starship designs in Star Wars, utilized by the heroes of both the Original
-#   Trilogy and The Force Awakens. Poe Dameron’s black-and-orange T-70 is the evolution of the classic T-65, with the same
-#   sharp ferocity. The X-wing is the ship of heroes, and it looks the part.",
-#   price: 100,
-#   address: "Al Haram, Nazlet El-Semman, Al Giza Desert, Giza Governorate 3512201, Égypte"
-# )
+spaceship = Spaceship.new(
+  name: "X-wing",
+  description: "Since the starship battles in A New Hope were modeled after real-world dogfights, X-wings fit the role
+  of the quick, darting fighter planes that fought in them. Their maneuverability and the split wings that match the X
+  in their name make them one of the coolest starship designs in Star Wars, utilized by the heroes of both the Original
+  Trilogy and The Force Awakens. Poe Dameron’s black-and-orange T-70 is the evolution of the classic T-65, with the same
+  sharp ferocity. The X-wing is the ship of heroes, and it looks the part.",
+  price: 100,
+  address: "Al Haram, Nazlet El-Semman, Al Giza Desert, Giza Governorate 3512201, Égypte"
+)
 
-# spaceship2 = Spaceship.new(
+spaceship.user = users.sample
+spaceship.save!
+
+# spaceship = Spaceship.create!(
 #   name: "Millennium Falcon",
 #   description: "Don’t panic—we didn’t forget the fastest hunk of junk in the galaxy! I’d say this is the most iconic
 #   starship in all of Star Wars. At the center of the entire Original Trilogy (and it makes a look-and-you’ll-miss-it
@@ -48,7 +51,7 @@ end
 #   address: "Babylone, 14140 Val-de-Vie, Irak"
 # )
 
-# spaceship3 = Spaceship.new(
+# spaceship = Spaceship.create!(
 #   name: "Super Star Destroyer",
 #   description: "You absolutely remember Darth Vader’s flagship, Executor, from The Empire Strikes Back and Return of
 #   the Jedi. The ship that hunted Luke Skywalker and the Rebellion was the same one that later crashed into the Death
@@ -58,7 +61,7 @@ end
 #   address: "Taj Mahal, Agra, Uttar Pradesh, Inde"
 # )
 
-# spaceship4 = Spaceship.new(
+# spaceship = Spaceship.create!(
 #   name: "Snoke’s Supremacy Flagship",
 #   description: "With Supreme Leader Snoke’s desire to out-Empire the Empire came an intimidating starship: the Supremacy
 #   made its debut in The Last Jedi and became one of the largest vessels ever put in a Star Wars movie. Its winglike
@@ -71,6 +74,3 @@ end
 # )
 
 # spaceships = [spaceship1, spaceship2, spaceship3, spaceship4]
-
-# spaceship.user = users.sample
-# spaceship.save!

@@ -1,5 +1,5 @@
 class SpaceshipsController < ApplicationController
-  before_action :set_spaceship, only: [:show]
+  before_action :set_spaceship, only: [:show, :index]
 
   def show
     set_spaceship
