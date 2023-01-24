@@ -3,6 +3,7 @@ class SpaceshipsController < ApplicationController
 
   def show
     set_spaceship
+    @booking = Booking.new
     @markers = [
       {
         lat: @spaceship.latitude,
@@ -12,7 +13,7 @@ class SpaceshipsController < ApplicationController
       }
     ]
   end
-  
+
 
   private
 

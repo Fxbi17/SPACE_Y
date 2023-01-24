@@ -1,3 +1,2 @@
-<h2><%= spaceship.name %></h2>
-<%# <p><%= spaceship.address</p> %>
-<%= link_to "Booking Now", new_spaceship_booking_path(spaceship)  %>
+<h4><%= link_to spaceship.name, spaceship_path(spaceship) %></h4>
+<a href="<%= my_bookings_path %>" class="btn btn-dark">My Booking !</a>
