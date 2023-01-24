@@ -51,7 +51,7 @@ spaceship1 = Spaceship.new(
     starship in all of Star Wars. At the center of the entire Original Trilogy (and it makes a look-and-you’ll-miss-it
     cameo in the Prequels, too!), the Falcon rightfully became one of the standout icons of the Sequel Trilogy, too.",
   price: rand(1_000_000..1_000_000_000),
-  address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris"
+  address: "5 Av. Anatole France, 75007 Paris"
 )
 
 spaceship2 = Spaceship.new(
@@ -61,7 +61,7 @@ spaceship2 = Spaceship.new(
     Star II’s surface during the Battle of Endor. It’s quite poetic that it’s a Rebel A-wing—one of the fleet’s smaller
     fighters—that ultimately deals the killing blow.",
   price: rand(1_000_000..1_000_000_000),
-  address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, Inde"
+  address: "Agra, Inde"
 )
 
 spaceship3 = Spaceship.new(
@@ -72,7 +72,7 @@ spaceship3 = Spaceship.new(
     they were doing it, especially twisting around in the beautiful Battle of Coruscant at the beginning of Revenge
     of the Sith. The Aethersprites are agile.",
   price: rand(1_000_000..1_000_000_000),
-  address: "Kitayama, Fujinomiya, Préfecture de Shizuoka 418-0112, Japon"
+  address: "Mont Fuji, Japon"
 )
 
 spaceship4 = Spaceship.new(
@@ -102,7 +102,7 @@ spaceship6 = Spaceship.new(
     parts, and it can deal with extreme environments (like burning up in Earth's atmosphere or lurking under the ocean.)
     Most advanced versions can even cloak. ",
   price: 100,
-  address: "Hawaï 96778, États-Unis"
+  address: "Hawaï 96778"
 )
 
 spaceships = [spaceship1, spaceship2, spaceship3, spaceship4, spaceship5, spaceship6]

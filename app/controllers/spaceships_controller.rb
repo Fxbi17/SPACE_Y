@@ -3,16 +3,16 @@ class SpaceshipsController < ApplicationController
 
   def show
     set_spaceship
-    @spaceships = Spaceship.all
-    @markers = @spaceships.geocoded.map do |spaceship|
+    @markers = [
       {
-        lat: spaceship.latitude,
-        lng: spaceship.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {spaceship: spaceship}),
-        marker_html: render_to_string(partial: "marker", locals: {spaceship: spaceship})
+        lat: @spaceship.latitude,
+        lng: @spaceship.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {spaceship: @spaceship}),
+        marker_html: render_to_string(partial: "marker", locals: {spaceship: @spaceship})
       }
-    end
+    ]
   end
+  
 
   private
 
