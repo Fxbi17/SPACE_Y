@@ -1,6 +1,36 @@
 class SpaceshipsController < ApplicationController
   before_action :set_spaceship, only: [:show]
 
+  def new
+    @spaceship = Spaceship.new
+  end
+
+  def create
+    @spaceship = Spaceship.new(spaceship_params)
+    @spaceship.user = current_user
+    if @spaceship.save
+      redirect_to spaceship_path(@spaceship)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @spaceship = Spaceship.find(params[:id])
+  end
+
+  def update
+    @spaceship = Spaceship.find(params[:id])
+    @spaceship.update(spaceship_params)
+    redirect_to spaceship_path(@spaceship)
+  end
+
+  def destroy
+    @spaceship = Spaceship.find(params[:id])
+    @spaceship.destroy
+    redirect_to root_path
+  end
+
   def show
     set_spaceship
     @markers = [
@@ -12,7 +42,7 @@ class SpaceshipsController < ApplicationController
       }
     ]
   end
-  
+
 
   private
 
