@@ -8,7 +8,7 @@
         <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <p>Booking n° <strong><%= booking.id %></strong><br>
-              <%= link_to "#{booking.spaceship.name}", my_booking_path(booking) %>
+              <%= link_to "#{booking.spaceship.name}", spaceship_path(booking.spaceship) %>
             </p>
             <p>Start <strong><%= booking.startbook_time %></strong></p>
             <p>End <strong><%= booking.endbook_time %></strong></p>
