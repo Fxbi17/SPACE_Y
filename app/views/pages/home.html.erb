@@ -1,6 +1,17 @@
 <h1>Space Y</h1>
 <p>Space Y is a space travel market that offers spaceships for rent.</p>
 
+<!-- [.ACTIVE RECORD - SEARCH FORM.] -->
+<div class="container">
+  <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a spaceship"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="row">
   <div class="col-6">

@@ -12,7 +12,7 @@
             </p>
             <p>Start <strong><%= booking.startbook_time %></strong></p>
             <p>End <strong><%= booking.endbook_time %></strong></p>
-            <p>Price <strong><%= booking.spaceship.price %> £</strong></p>
+            <p>Price <strong><%= booking.spaceship.price * (booking.endbook_time - booking.startbook_time).to_i %> $</strong></p>
         </div>
       </div>
     </div>

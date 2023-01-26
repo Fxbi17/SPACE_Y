@@ -2,7 +2,12 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @spaceships = Spaceship.all
+    if params[:query].present?
+      @spaceships = Spaceship.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @spaceships = Spaceship.all
+    end
+
     @markers = @spaceships.geocoded.map do |spaceship|
       {
         lat: spaceship.latitude,
@@ -11,5 +16,6 @@ class PagesController < ApplicationController
         marker_html: render_to_string(partial: "spaceships/marker", locals: {spaceship: spaceship})
       }
     end
+
   end
 end
