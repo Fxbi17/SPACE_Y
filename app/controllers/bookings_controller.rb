@@ -1,9 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_spaceship, only: [:new, :create]
-
-  def new
-    @booking = Booking.new
-  end
+  before_action :set_spaceship, only: [:create]
 
   def create
     @booking = Booking.new(params_booking)

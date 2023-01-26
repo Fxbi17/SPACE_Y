@@ -1,12 +1,14 @@
-<h4>Spaceship Name</h4>
-<h1><%= @spaceship.name %></h1>
+
+<h1><%= @spaceship.name %></h1><br>
 
 <div class="row">
   <div class="col-6">
-    <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
-    <h1 class="card-title"><%= @spaceship.name %></h1>
+    <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="..."><br><br>
     <p class="card-text"><%= @spaceship.description %></p>
-    <a href="<%= new_spaceship_booking_path(@spaceship) %>" class="btn btn-dark">Book now !</a>
+    <h4>Address</h4>
+    <p><%= @spaceship.address %></p><br>
+    <h4>Price</h4>
+    <p><%= @spaceship.price %>$</p><br>
   </div>
   <div class="col-6">
     <%# Mapbox %>
@@ -15,20 +17,33 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
     </div>
-    <%# <img src="https://wallpapershome.com/images/pages/pic_v/17861.jpg" alt="..."> %>
   </div>
 </div>
 
+
+
+<%# CREATE BOOKING_FORM %>
+<h3>Book now </h3><br>
+
+<%= simple_form_for [@spaceship, @booking] do |f| %>
+  <%= f.input :startbook_time, as: :date, html5: true  %>
+  <%= f.input :endbook_time, as: :date, html5: true  %>
+  <button type="submit" class="btn btn-warning"><%= f.button :submit %></button>
+<% end %>
+
 <br><br><br>
 
-<h4>Address</h4>
-<p><%= @spaceship.address %></p><br>
+<%# EDIT SPACESHIP %>
+<%= link_to edit_spaceship_path(@spaceship.id) do %>
+<i>EDIT</i>
+<% end %>
 
-<h4>Price</h4>
-<p><%= @spaceship.price %>$</p><br>
+<br><br>
+
+<%# DELETE SPACESHIP %>
+<%= link_to "Delete",
+  spaceship_path(@spaceship),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+
 <br><br><br>
-<%# <%= link_to "Booking Now", new_spaceship_booking_path(@spaceship)  %>
-
-<%# <h4>Description du vaisseau</h4> %>
-<%# <p><%= @spaceship.description</p> %>
-
