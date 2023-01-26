@@ -1,0 +1,18 @@
+<h1>My spaceships</h1>
+<p><%= link_to "Back to home", root_path %></p>
+
+<div class="row">
+  <% @spaceships.each do |spaceship| %>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p>Rent n° <strong><%= spaceship.id %></strong><br>
+            <%= link_to "#{spaceship.name}", spaceship_path(spaceship) %>
+            <p><strong><%= spaceship.description %></strong></p>
+            <p><strong><%= spaceship.address %></strong></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
