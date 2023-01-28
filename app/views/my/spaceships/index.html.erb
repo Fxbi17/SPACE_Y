@@ -1,11 +1,11 @@
 <h1>My spaceships</h1>
-<p><%= link_to "Back to home", root_path %></p>
+<p><%= link_to "Back to home", root_path, class: "btn btn-outline-danger" %></p>
 
 <div class="row">
   <% @spaceships.each do |spaceship| %>
     <div class="col">
       <div class="card" style="width: 18rem;">
-        <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
+        <%= cl_image_tag(spaceship.image.key, crop: :fill) %>
         <div class="card-body">
             <p>Rent n° <strong><%= spaceship.id %></strong><br>
             <%= link_to "#{spaceship.name}", spaceship_path(spaceship) %>

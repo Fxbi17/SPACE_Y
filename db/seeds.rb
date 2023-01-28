@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 Booking.destroy_all
 Spaceship.destroy_all
@@ -37,6 +38,8 @@ spaceship1 = Spaceship.new(
   price: rand(1_000_000..1_000_000_000),
   address: "5 Av. Anatole France, 75007 Paris"
 )
+file1 = URI.open("https://www.denofgeek.com/wp-content/uploads/2016/01/millennium-falcon.jpg")
+spaceship1.image.attach(io: file1, filename: 'spaceship1.jpg', content_type: 'image/jpg')
 
 spaceship2 = Spaceship.new(
   name: "Super Star Destroyer",
@@ -47,6 +50,8 @@ spaceship2 = Spaceship.new(
   price: rand(1_000_000..1_000_000_000),
   address: "Agra, Inde"
 )
+file2 = URI.open("https://www.denofgeek.com/wp-content/uploads/2016/01/super-star-destroyer_0.jpg")
+spaceship2.image.attach(io: file2, filename: 'spaceship2.jpg', content_type: 'image/jpg')
 
 spaceship3 = Spaceship.new(
   name: "Jedi Starfighter",
@@ -58,6 +63,8 @@ spaceship3 = Spaceship.new(
   price: rand(1_000_000..1_000_000_000),
   address: "Mont Fuji, Japon"
 )
+file3 = URI.open("https://www.denofgeek.com/wp-content/uploads/2019/12/star-wars-jedi-starfighter.jpg?w=1024")
+spaceship3.image.attach(io: file3, filename: 'spaceship3.jpg', content_type: 'image/jpg')
 
 spaceship4 = Spaceship.new(
   name: "N-1 Naboo Starfighter",
@@ -67,6 +74,8 @@ spaceship4 = Spaceship.new(
   price: rand(1_000_000..1_000_000_000),
   address: "Petermann Territoire du Nord 0872, Australie"
 )
+file4 = URI.open("https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg")
+spaceship4.image.attach(io: file4, filename: 'spaceship4.jpg', content_type: 'image/jpg')
 
 spaceship5 = Spaceship.new(
   name: "X-wing",
@@ -78,6 +87,8 @@ spaceship5 = Spaceship.new(
   price: 100,
   address: "08680, Pérou"
 )
+file5 = URI.open("https://www.denofgeek.com/wp-content/uploads/2019/12/x-wing.jpg?w=1024")
+spaceship5.image.attach(io: file5, filename: 'spaceship5.jpg', content_type: 'image/jpg')
 
 spaceship6 = Spaceship.new(
   name: "USS ENTERPRISE",
@@ -88,6 +99,8 @@ spaceship6 = Spaceship.new(
   price: 100,
   address: "Hawaï 96778"
 )
+file6 = URI.open("https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/06/STC_Enterprise-Cropped.jpg")
+spaceship6.image.attach(io: file6, filename: 'spaceship6.jpg', content_type: 'image/jpg')
 
 spaceships = [spaceship1, spaceship2, spaceship3, spaceship4, spaceship5, spaceship6]
 
