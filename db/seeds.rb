@@ -29,22 +29,6 @@ users = [user1, user2, user3]
 # end
 
 
-# spaceship = Spaceship.new(
-#   name: "X-wing",
-#   description: "Since the starship battles in A New Hope were modeled after real-world dogfights, X-wings fit the role
-#     of the quick, darting fighter planes that fought in them. Their maneuverability and the split wings that match the X
-#     in their name make them one of the coolest starship designs in Star Wars, utilized by the heroes of both the Original
-#     Trilogy and The Force Awakens. Poe Dameron’s black-and-orange T-70 is the evolution of the classic T-65, with the same
-#     sharp ferocity. The X-wing is the ship of heroes, and it looks the part.",
-#   price: 100,
-#   address: "08680, Pérou"
-# )
-
-# spaceship.user = users.sample
-# spaceship.save!
-
-# Spaceship.create(address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris", name: "Millennium Falcon")
-
 spaceship1 = Spaceship.new(
   name: "Millennium Falcon",
   description: "Don’t panic—we didn’t forget the fastest hunk of junk in the galaxy! I’d say this is the most iconic

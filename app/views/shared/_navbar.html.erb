@@ -1,5 +1,5 @@
 <%# change color background nav-bar (navbar-light)(navbar-dark bg-dark) %>
-<div class="navbar navbar-expand-sm  navbar-dark bg-dark navbar-lewagon">
+<div class="navbar navbar-expand-sm  navbar-dark bg-dark navbar-lewagon fixed-top">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%#  need to change logo_image du wagon.!! %>
@@ -14,7 +14,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-        <%= link_to "New Spaceship", new_spaceship_path %>
+          <%# Mis le lien New Spaceship ds balise li %>
+          <li class="nav-item active">
+              <a class="nav-link" <%= link_to "New Spaceship", new_spaceship_path %>></a>
+          </li>
           <li class="nav-item dropdown">
           <%# need to change user_image et peut-être rajouter le nom de l'utilisateur!!! %>
             <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0H1aFYOXBXb_UY2OcYYJb0ifm2zq1Yw6uJA&usqp=CAU", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

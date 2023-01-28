@@ -1,0 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);">
+  <div class="container">
+    <h1><strong>SPACE Y</strong>  - vers <strong> l'infini et l'au delà </strong>!</h1><br>
+    <%# <h1>Le site n°1 de location de <strong> vaisseaux</strong> </h1> %>
+    <p class="typed" data-controller="typed"></p>
+    <%# <p>Espace, frontière de l'infini, vers laquelle voyage nos vaisseaux.</p>
+    <p>Explorer de nouveaux mondes étranges, découvrir de nouvelles vies, d'autres civilisations, et au mépris du danger avancer vers l'inconnu...</p> %>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a spaceship"
+            %>
+            <%= submit_tag "Search", class: "btn btn-dark text-white" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
