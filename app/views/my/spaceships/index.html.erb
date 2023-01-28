@@ -1,17 +1,22 @@
+<%= link_to "Back to home", root_path, class: "btn btn-outline-danger mb-4" %>
 <h1>My spaceships</h1>
-<p><%= link_to "Back to home", root_path, class: "btn btn-outline-danger" %></p>
 
 <div class="row">
   <% @spaceships.each do |spaceship| %>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <%= cl_image_tag(spaceship.image.key, crop: :fill) %>
+    <div class="col-4 d-flex align-items-stretch">
+      <div class="card">
+        <%= cl_image_tag(spaceship.image.key, crop: :fill, class: "card-img-top") %>
         <div class="card-body">
-            <p>Rent n° <strong><%= spaceship.id %></strong><br>
-            <%= link_to "#{spaceship.name}", spaceship_path(spaceship) %>
-            <p><strong><%= spaceship.description %></strong></p>
-            <p><strong><%= spaceship.address %></strong></p>
+          <h3 class="card-title">
+            <%= link_to "#{spaceship.name}", spaceship_path(spaceship), class: "link-secondary" %>
+          </h3>
+          <p class="card-text"><%= spaceship.description %></p>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Rent n° <%= spaceship.id %></strong></li>
+          <li class="list-group-item">Address : <%= spaceship.address %></li>
+          <li class="list-group-item">Price : <%= spaceship.price %> BTC/day</li>
+        </ul>
       </div>
     </div>
   <% end %>
