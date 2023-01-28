@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_28_095009) do
   create_table "spaceships", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "price"
+    t.bigint "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
