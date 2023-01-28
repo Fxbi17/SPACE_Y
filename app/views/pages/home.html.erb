@@ -7,35 +7,16 @@
   </div>
 </div>
 
-<!-- [.ACTIVE RECORD - SEARCH FORM.] -->
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a spaceship"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div> -->
-
-<div class="card" style="width: 18rem;">
-  <img src="<%= spaceship.image %>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
 <div class="container mt-5"></div>
   <div class="row">
     <div class="col-6">
       <h3>Our Spaceships for rent</h3>
       <% @spaceships.each do |spaceship| %>
-        <p><%= spaceship.image %></p>
+        <% if spaceship.image.attached? %>
+          <%= cl_image_tag(spaceship.image.key,
+            width: 400, height: 300, crop: :fill)
+          %>
+        <% end %>
         <h4><%= link_to spaceship.name, spaceship_path(spaceship) %></h4>
       <% end %>
     </div>
