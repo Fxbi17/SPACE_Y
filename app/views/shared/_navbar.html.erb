@@ -16,7 +16,7 @@
         <% if user_signed_in? %>
           <%# Mis le lien New Spaceship ds balise li %>
           <li class="nav-item active">
-              <a class="nav-link" <%= link_to "New Spaceship", new_spaceship_path %>></a>
+            <%= link_to "New Spaceship", new_spaceship_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <%# need to change user_image et peut-être rajouter le nom de l'utilisateur!!! %>
