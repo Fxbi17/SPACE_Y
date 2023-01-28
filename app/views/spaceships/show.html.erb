@@ -1,35 +1,30 @@
-<div>
-  <h1><%= @spaceship.name %></h1><br>
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <%# <a class="nav-link active" aria-current="page" href="#"> %>
-        <% if @spaceship.user == current_user %>
-          <%= link_to edit_spaceship_path(@spaceship.id) do %>
-            <i>EDIT</i>
-          <% end %>
-        <% end %>
-      <%# </a> %>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <% if @spaceship.user == current_user %>
-          <%= link_to "Delete", spaceship_path(@spaceship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <% end %>
-      </a>
-    </li>
-  </ul>
-</div>
+
 
 <div class="row">
-  <div class="col-6">
-    <%= cl_image_tag(@spaceship.image.key,
-      width: 400, height: 300, crop: :fill)
-    %>
-    <p class="card-text"><%= @spaceship.description %></p>
-    <h4>Address</h4>
-    <p><%= @spaceship.address %></p><br>
-    <h4>Price</h4>
-    <p><%= @spaceship.price %> BTC/day</p><br>
+  <div class="col-6 d-flex align-items-stretch">
+    <div class="card">
+      <%= cl_image_tag(@spaceship.image.key, crop: :fill, class: "card-img-top") %>
+      <div class="card-body">
+        <h3 class="card-title">
+          <div class="mb-2 d-flex align-items-center">
+            <div class="mb-0"><%= @spaceship.name %></div>
+            <% if @spaceship.user == current_user %>
+              <%= link_to(edit_spaceship_path(@spaceship.id), class:"mx-2") do %>
+                <i class="fa-solid fa-pen text-secondary fs-6"></i>
+              <% end %>
+              <%= link_to(spaceship_path(@spaceship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "me-2") do %>
+                <i class="fa-regular fa-trash-can text-secondary fs-6"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </h3>
+        <p class="card-text"><%= @spaceship.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Address : <%= @spaceship.address %></li>
+        <li class="list-group-item">Price : <%= @spaceship.price %> BTC/day</li>
+      </ul>
+    </div>
   </div>
   <div class="col-6">
     <%# Mapbox %>
@@ -45,33 +40,14 @@
 
 <%# CREATE BOOKING_FORM %>
 <% if @spaceship.user != current_user %>
-  <h3>Book now </h3><br>
-  <%= simple_form_for [@spaceship, @booking] do |f| %>
-    <%= f.input :startbook_time, as: :date, html5: true  %>
-    <%= f.input :endbook_time, as: :date, html5: true  %>
-    <button type="submit" class="btn btn-warning"><%= f.button :submit %></button>
-  <% end %>
+  <div class="card mt-5 text-center">
+    <div class="card-body">
+      <h4 class="card-title mb-4"><strong>Book now</strong></h4>
+      <%= simple_form_for [@spaceship, @booking] do |f| %>
+        <%= f.input :startbook_time, as: :date, html5: true, input_html: {class: "w-50 text-center"}, wrapper_html:{class: "booking-form-input"}  %>
+        <%= f.input :endbook_time, as: :date, html5: true, input_html: {class: "w-50 text-center"}, wrapper_html:{class: "booking-form-input"}  %>
+        <button type="submit" class="btn btn-warning"><%= f.button :submit %></button>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
-
-
-<br><br><br>
-
-<%# EDIT SPACESHIP %>
-<% if @spaceship.user == current_user %>
-  <%= link_to edit_spaceship_path(@spaceship.id) do %>
-    <i>EDIT</i>
-  <% end %>
-<% end %>
-
-<br><br>
-
-<%# DELETE SPACESHIP %>
-<% if @spaceship.user == current_user %>
-  <%= link_to "Delete",
-    spaceship_path(@spaceship),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-<% end %>
-
-<br><br><br>
