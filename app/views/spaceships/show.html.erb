@@ -3,7 +3,9 @@
 
 <div class="row">
   <div class="col-6">
-    <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="..."><br><br>
+    <%= cl_image_tag(@spaceship.image.key,
+      width: 400, height: 300, crop: :fill)
+    %>
     <p class="card-text"><%= @spaceship.description %></p>
     <h4>Address</h4>
     <p><%= @spaceship.address %></p><br>
