@@ -1,19 +1,22 @@
+<%= link_to "Back to home", root_path, class: "btn btn-outline-danger mb-3" %>
 <h1>My Bookings</h1>
-<p><%= link_to "Back to home", root_path, class: "btn btn-outline-danger" %></p>
-
 <div class="row">
   <% @bookings.each do |booking| %>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="https://www.denofgeek.com/wp-content/uploads/2016/01/naboo-starfighter.jpg" class="card-img-top" alt="...">
+    <div class="col-4 d-flex align-items-stretch">
+      <div class="card">
+        <%= cl_image_tag(booking.spaceship.image.key, crop: :fill, class: "card-img-top") %>
         <div class="card-body">
-            <p>Booking n° <strong><%= booking.id %></strong><br>
-              <%= link_to "#{booking.spaceship.name}", spaceship_path(booking.spaceship) %>
-            </p>
-            <p>Start <strong><%= booking.startbook_time %></strong></p>
-            <p>End <strong><%= booking.endbook_time %></strong></p>
-            <p>Price <strong><%= booking.spaceship.price * (booking.endbook_time - booking.startbook_time).to_i %> $</strong></p>
+          <h3 class="card-title">
+            <%= link_to "#{booking.spaceship.name}", spaceship_path(booking.spaceship), class: "link-secondary" %>
+          </h3>
+          <p class="card-text"><%= booking.spaceship.description %></p>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Booking n° <%= booking.id %></strong></li>
+          <li class="list-group-item">Start <strong><%= booking.startbook_time %></strong></li>
+          <li class="list-group-item">End <strong><%= booking.endbook_time %></strong></li>
+          <li class="list-group-item">Price <strong><%= booking.spaceship.price * (booking.endbook_time - booking.startbook_time).to_i %> BTC/day</strong></li>
+        </ul>
       </div>
     </div>
   <% end %>
